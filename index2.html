@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="box">
+    <h1 id="result">Result</h1>
+    <input type="number" id="userInput">
+    <div id="buttons">
+        <button id="powerBtn">2 degree</button>
+        <button id="binaryBtn">2 systems each</button>
+        <button id="sqrtBtn">Root</button>
+    </div>
+</div>
+    <script>
+        const result=document.getElementById("result");
+        const btn1=document.getElementById("powerBtn");
+        const btn2=document.getElementById("binaryBtn");
+        const btn3=document.getElementById("sqrtBtn");
+        const buttons=document.getElementById("buttons");
+        const box=document.getElementById("box");
+        const tiv=document.getElementById("userInput");
+        result.style="background:white;";
+        btn1.style="width:200px;height:40px;font-size:18px;";
+        btn2.style="width:200px;height:40px;font-size:18px;margin-top:20px;";
+        btn3.style="width:200px;height:40px;font-size:18px;margin-top:20px;";
+        buttons.style="margin-top:10px;display:flex;flex-direction:column;";
+        box.style="border:5px solid black;width:400px;height:400px;display:flex;flex-direction:column;align-items:center;background:rgb(250,150,2);padding:10px;"
+        tiv.style="font-size:40px;width:200px;"
+
+        btn1.onclick=function(){
+            let val=+document.getElementById("userInput").value
+            // result.innerText=2**val;//kam takiny
+            result.innerHTML=`2 <sup>${val}</sup> =${2**val}`;
+        }
+        btn2.onclick=function(){
+            let val=+document.getElementById("userInput").value;
+            let res=val.toString(2);//erkuakan hamakargov a grm tivy
+            result.innerHTML=`${val}<sub>(10)</sub> = ${res}<sub>(2)</sub>`
+        }
+        btn3.onclick=function(){
+            let val=+document.getElementById("userInput").value;
+            let res=Math.sqrt(val);
+            result.innerHTML=`Square Root of <${val}> is <${res}>`;
+        }
+    </script>
+</body>
+</html>
