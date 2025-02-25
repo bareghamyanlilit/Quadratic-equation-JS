@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>banadzev</title>
+</head>
+<body style="background: rgb(79, 79, 79);">
+    <div style="border:5px solid rgb(0, 70, 128);box-shadow:0px 0px 50px rgb(0, 208, 255);background:rgb(170, 231, 232);padding:30px;width:max-content;display:flex;flex-direction:column;align-items:center">
+        <div style="display:flex">
+        <label style="display:flex;flex-direction:column;text-align:center;font-size:40px;margin:0px 10px 0px 10px">
+        <span>a</span>
+        <input  type="text" id="label1"/>
+        </label>
+        
+        <label style="display:flex;flex-direction:column;text-align:center;font-size:40px;margin:0px 10px 0px 10px">
+        <span>b</span>
+        <input type="text" id="label2"/>
+        </label>
+        
+        <label style="display:flex;flex-direction:column;text-align:center;font-size:40px;margin:0px 10px 0px 10px">
+        <span>c</span>
+        <input type="text" id="label3"/>
+        </label>
+        </div>
+        <br/>
+        <h1 style="text-align:center;margin:0" id="havasarum" >
+        </h1>
+        <button style="border:none;box-shadow:0px 0px 10px rgb(255, 255, 255); padding:10px 20px 10px 20px;background: rgb(142, 183, 220);font-size:20px;font-family:a; margin:10px" id="btn">Return</button>
+        <h1 style="margin:0" id="text">D=</h1>
+        <h1 style="margin:0" id="x1"></h1>
+        <h1 style="margin:0" id="x2"></h1>
+        </div>
+    <script>
+const label1=document.querySelector("#label1");
+const label2=document.querySelector("#label2");
+const label3=document.querySelector("#label3");
+const text=document.querySelector("#text");
+const havasarum=document.querySelector("#havasarum");
+const btn=document.querySelector("#btn");
+const x1=document.querySelector("#x1");
+const x2=document.querySelector("#x2");
+label1.style="width:50px;font-size:30px"
+label2.style="width:50px;font-size:30px"
+label3.style="width:50px;font-size:30px"
+havasarum.innerHTML=`ax<sup>2</sup>+bx+c`;
+x1.innerHTML=`X<sub>1</sub>= `;
+x2.innerHTML=`X<sub>2</sub>= `;
+btn.onclick=function(){
+	let a=+label1.value;
+	let b=+label2.value;
+	let c=+label3.value;
+	havasarum.innerHTML=`${a}x<sup>2</sup>+${b}x+${c}`
+	let val=(b*b)-(4*a*c);
+    text.innerHTML=`D=${val}`;
+    if(val>0){
+        let x1arjeq=(-b+Math.sqrt(val))/2*a;
+        let x2arjeq=(-b-Math.sqrt(val))/2*a;
+      	x1.innerHTML=`X<sub>1</sub>= ${x1arjeq}`;
+  	    x2.innerHTML=`X<sub>2</sub>= ${x2arjeq}`;
+    }else if(val==0){
+  	    let xarjeq=-b/(2*a);
+      	x1.innerHTML=`X= ${xarjeq}`;
+        x2.innerHTML="";
+    }else{
+  	    x1.innerHTML=`X=datark bazmutyun`;
+        x2.innerHTML="";
+    }
+}
+    </script>
+</body>
+</html>
